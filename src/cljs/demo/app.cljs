@@ -1,6 +1,10 @@
 (ns demo.app)
 
-(defn ^:export hello-world []
-  (.log js/console "Hello World!"))
+(defonce state (atom {:started 0}))
 
-(hello-world)
+(defn ^:export start []
+  (swap! state update-in [:started] inc)
+  (.log js/console "starting app" (:started @state)))
+
+(defn ^:export stop []
+  (.log js/console "stopping app"))

@@ -9,7 +9,7 @@
   :profiles {:dev {:source-paths ["dev"]
                    :dependencies [[org.clojure/clojure "1.6.0"]
                                   [org.clojure/clojurescript "0.0-2322"]
-                                  [thheller/shadow-build "1.0.0-alpha1"]
+                                  [thheller/shadow-build "1.0.0-alpha2"]
                                   ]}} 
   
   :aliases {"cljs-dev" ["run" "-m" "shadow.cljs.api/build-dev" :project/cljs]
@@ -17,6 +17,9 @@
   
   :cljs {:modules [{:name :demo
                     :main 'demo.app}]
+         
+         :live-reload {:before-load 'demo.app/stop
+                       :after-load 'demo.app/start}
 
          :source-paths ["src/cljs"]
          :public-dir "demo/js"
