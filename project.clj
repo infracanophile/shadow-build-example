@@ -6,10 +6,10 @@
 
   :source-paths ["src/clj"]
 
-  :profiles {:dev {:source-paths ["dev"]
+  :profiles {:dev {:source-paths ["src/dev"]
                    :dependencies [[org.clojure/clojure "1.6.0"]
-                                  [org.clojure/clojurescript "0.0-2322"]
-                                  [thheller/shadow-build "1.0.0-alpha2"]
+                                  [org.clojure/clojurescript "0.0-2913"]
+                                  [thheller/shadow-build "1.0.0-alpha8"]
                                   ]}} 
   
   :aliases {"cljs-dev" ["run" "-m" "shadow.cljs.api/build-dev" :project/cljs]

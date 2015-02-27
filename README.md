@@ -18,3 +18,13 @@ Now edit ```src/cljs/demo/app.cljs``` wait for the compilation to finish (should
 Then stop the ```lein cljs-dev``` task and execute ```lein cljs-prod``` then reload demo.html. It will now load the advanced optimized Javascript which is substantially smaller than the dev version.
 
 For more advanced configuration options refer directly to https://github.com/thheller/shadow-build.
+
+
+Automated Testing
+=====================
+
+```
+lein run -m build/dev
+```
+
+This will compile CLJS as above (without the live reload) and automatically execute tests affected by code changes. Tests will execute with "node" (v0.12+ required).
