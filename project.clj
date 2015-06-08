@@ -7,21 +7,7 @@
   :source-paths ["src/clj"]
 
   :profiles {:dev {:source-paths ["src/dev"]
-                   :dependencies [[org.clojure/clojure "1.6.0"]
-                                  [org.clojure/clojurescript "0.0-2913"]
-                                  [thheller/shadow-build "1.0.0-alpha8"]
-                                  ]}} 
-  
-  :aliases {"cljs-dev" ["run" "-m" "shadow.cljs.api/build-dev" :project/cljs]
-            "cljs-prod" ["run" "-m" "shadow.cljs.api/build-prod" :project/cljs]}
-  
-  :cljs {:modules [{:name :demo
-                    :main 'demo.app}]
-         
-         :live-reload {:before-load 'demo.app/stop
-                       :after-load 'demo.app/start}
-
-         :source-paths ["src/cljs"]
-         :public-dir "demo/js"
-         :public-path "demo/js"}
-  )
+                   :dependencies [[org.clojure/clojure "1.7.0-RC1"]
+                                  [org.clojure/clojurescript "0.0-3269"]
+                                  [thheller/shadow-build "1.0.0-alpha12"]
+                                  ]}})
