@@ -7,7 +7,7 @@
   :source-paths ["src/clj"]
 
   :profiles {:dev {:source-paths ["src/dev"]
-                   :dependencies [[org.clojure/clojure "1.7.0-RC1"]
-                                  [org.clojure/clojurescript "0.0-3269"]
-                                  [thheller/shadow-build "1.0.0-alpha12"]
+                   :dependencies [[org.clojure/clojure "1.7.0"]
+                                  [org.clojure/clojurescript "1.7.48"]
+                                  [thheller/shadow-build "1.0.0-alpha15"]
                                   ]}})
