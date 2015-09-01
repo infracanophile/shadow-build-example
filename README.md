@@ -17,6 +17,12 @@ Open the ```demo.html``` in a browser.
 
 Now edit ```src/cljs/demo/app.cljs``` wait for the compilation to finish (should be a couple milliseconds) and reload the demo.html.
 
+```
+lein run -m build/live-reload
+```
+
+Will automate the reload for you.
+
 Then stop the lein task and execute ```lein run -m build/production``` then reload demo.html. It will now load the advanced optimized Javascript which is substantially smaller than the dev version.
 
 For more advanced configuration options refer directly to https://github.com/thheller/shadow-build.

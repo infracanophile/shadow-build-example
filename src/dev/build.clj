@@ -1,5 +1,6 @@
 (ns build
   (:require [shadow.cljs.build :as cljs]
+            [shadow.cljs.live-reload :as live-reload]
             [clojure.java.io :as io]))
 
 (defn dev [& args]
@@ -23,6 +24,35 @@
          (-> state
              (cljs/step-compile-modules)
              (cljs/flush-unoptimized))))))
+
+(defn live-reload [& args]
+  (-> (cljs/init-state)
+      (cljs/enable-source-maps)
+      (assoc :optimizations :none
+             :pretty-print true
+             :work-dir (io/file "target/cljs-work")
+             :cache-dir (io/file "target/cljs-cache")
+             :cache-level :jars
+             :public-dir (io/file "demo/js")
+             :public-path "demo/js")
+      (cljs/step-find-resources-in-jars)
+      (cljs/step-find-resources "src/cljs")
+      (cljs/step-find-resources "test/cljs")
+      (cljs/step-configure-module :demo ['demo.app] #{})
+      (cljs/step-finalize-config)
+      (live-reload/setup {:before-load 'demo.app/stop
+                          :after-load 'demo.app/start
+                          ;; :host "localhost" ;; optional, defaults to localhost
+                          ;; :port 8889 ;; optional, defaults to random open port
+                          })
+
+      (cljs/watch-and-repeat!
+       (live-reload/wrap
+        (fn [state modified]
+          (-> state
+              (cljs/step-compile-modules)
+              (cljs/flush-unoptimized)
+              ))))))
 
 (defn production [& args]
   (-> (cljs/init-state)

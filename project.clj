@@ -9,5 +9,5 @@
   :profiles {:dev {:source-paths ["src/dev"]
                    :dependencies [[org.clojure/clojure "1.7.0"]
                                   [org.clojure/clojurescript "1.7.48"]
-                                  [thheller/shadow-build "1.0.0-alpha15"]
+                                  [thheller/shadow-build "1.0.0-alpha16"]
                                   ]}})
