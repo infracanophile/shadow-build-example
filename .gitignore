@@ -1,6 +1,9 @@
 pom.xml
 pom.xml.asc
-*jar
+.idea
+.DS_Store
+*.jar
+*.iml
 /lib/
 /classes/
 /target/
