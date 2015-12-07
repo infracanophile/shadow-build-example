@@ -14,7 +14,10 @@ REPL with code reloading (like lein-figwheel)
 ```
 lein run -m build/dev-repl
 ```
-Open the ```demo.html``` in a browser. The running process acts like a REPL and will execute the compiled input in the browser if one is connected.
+Open the ```demo.html``` in a browser. The running `lein` process acts like a REPL and will execute the compiled input in the browser if one is connected.
+
+`(build/dev-repl)` is just a function so you can either use it in a Cursive `clojure.main` REPL or emacs `inf-clojure` to get a CLJS REPL. nREPL is not supported at the moment.
+
 
 Compile code once
 ```
@@ -46,4 +49,6 @@ Test everything once, the on code change test only those directly affected by th
 lein run -m build/autotest
 ```
 
-See: https://github.com/thheller/shadow-build-example/blob/master/src/dev/build.clj
+See:
+https://github.com/thheller/shadow-build-example/blob/master/src/dev/build.clj
+https://github.com/thheller/shadow-build

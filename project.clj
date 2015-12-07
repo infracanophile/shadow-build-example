@@ -9,6 +9,6 @@
 
   :profiles {:dev {:source-paths ["src/dev"]
                    :dependencies [[org.clojure/clojure "1.7.0"]
-                                  [thheller/shadow-build "1.0.153"]
-                                  [thheller/shadow-devtools "0.1.31"]
+                                  [thheller/shadow-build "1.0.190"]
+                                  [thheller/shadow-devtools "0.1.34"]
                                   ]}})
