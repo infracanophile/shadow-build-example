@@ -2,7 +2,9 @@
   (:require [shadow.cljs.build :as cljs]
             [shadow.cljs.node :as node]
             [shadow.devtools.server :as devtools]
-            [clojure.java.io :as io]))
+            [clojure.java.io :as io]
+            [demo.macros] ; why on earth is this necessary? I clearly don't understand something
+            ))
 
 (defn project-setup [opts]
   (-> (cljs/init-state)
@@ -12,7 +14,7 @@
       (cljs/set-build-options
         opts)
       (cljs/find-resources-in-classpath)
-      (cljs/find-resources "src/cljs")
+      (cljs/find-resources "src")
       (cljs/configure-module :demo ['demo.app] #{})
       ))
 
@@ -55,8 +57,8 @@
         {:public-dir (io/file "target/cljs-test")
          :public-path "target/cljs-test"})
       (cljs/find-resources-in-classpath)
-      (cljs/find-resources "src/cljs")
-      (cljs/find-resources "test/cljs")
+      (cljs/find-resources "src")
+      (cljs/find-resources "test")
       ))
 
 (defn autotest
