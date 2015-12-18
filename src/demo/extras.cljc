@@ -1,7 +1,7 @@
 (ns demo.extras
   #?(:cljs (:require-macros demo.extras
-                            demo.macros
-                            )))
+                            demo.macros)
+     :clj (:require demo.macros)))
 
 #?(:clj
 (defmacro list-macro [x y]

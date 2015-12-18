@@ -81,6 +81,12 @@
       (node/execute-all-tests!)
       ))
 
+(defn test-clara []
+  (-> (test-setup)
+      (node/execute-affected-tests! [(cljs/ns->cljs-file 'clara.test-rules)])
+      )
+  )
+
 (defn test-affected [test-ns]
   (-> (test-setup)
       (node/execute-affected-tests! [(cljs/ns->cljs-file test-ns)])
