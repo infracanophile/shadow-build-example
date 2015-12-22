@@ -3,7 +3,6 @@
             [shadow.cljs.node :as node]
             [shadow.devtools.server :as devtools]
             [clojure.java.io :as io]
-            [demo.macros] ; why on earth is this necessary? I clearly don't understand something
             ))
 
 (defn project-setup [opts]
@@ -78,19 +77,12 @@
 
 (defn test-all []
   (-> (test-setup)
-      (node/execute-all-tests!)
-      ))
+      (node/execute-all-tests!)))
 
-(defn test-clara []
-  (-> (test-setup)
-      (node/execute-affected-tests! [(cljs/ns->cljs-file 'clara.test-rules)])
-      )
-  )
 
 (defn test-affected [test-ns]
   (-> (test-setup)
-      (node/execute-affected-tests! [(cljs/ns->cljs-file test-ns)])
-      ))
+      (node/execute-affected-tests! [(cljs/ns->cljs-file test-ns)])))
 
 (defn -main [& args]
   (dev-repl))

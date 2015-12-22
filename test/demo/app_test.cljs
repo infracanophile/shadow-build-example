@@ -1,8 +1,8 @@
 (ns demo.app-test
   (:require-macros [cljs.test :refer (is deftest run-tests testing)]
-                   [demo.clara-test-rules-data])
+                   [demo.clara-test-rules-data]
+                   [demo.macros])
   (:require [cljs.test :as t]
-            [cljs.env]
             [demo.app]
             [demo.extras]
             [clara.rules.engine :as eng]
@@ -201,5 +201,5 @@
              (:name (ex-data e)))))))
 
 (deftest productions-test
-  (prn (get-in @cljs.env/*compiler* [:clara.macros/productions]))
+  (prn (demo.macros/clara-productions))
   (is (= 1 2)))

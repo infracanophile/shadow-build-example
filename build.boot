@@ -6,9 +6,12 @@
                   [org.toomuchcode/clara-rules "0.9.2"]
                   [thheller/shadow-devtools "0.1.34"]
                   [adzerk/boot-cljs "1.7.170-3"]
+                  [adzerk/boot-test "1.0.7"]
                   [infracanophile/boot-cljs-test "0.3.8"]])
 
-(require 'infracanophile.boot-cljs-test 'adzerk.boot-cljs)
+(require 'infracanophile.boot-cljs-test
+         'adzerk.boot-cljs
+         '[adzerk.boot-test :refer [test]])
 
 (deftask cljs-test
   [n namespaces NAMESPACES #{sym}]
